@@ -2,6 +2,6 @@ package model;
 
 public enum BlockType {
 
-    NONE, PINK, YELLOW, GREEN, BLUE
+    NONE, RED, ORANGE, YELLOW, GREEN, BLUE, INDIGO, PURPLE
 
 }

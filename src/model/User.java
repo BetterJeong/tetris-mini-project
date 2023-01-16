@@ -8,8 +8,6 @@ public class User {
         score = 0;
     }
 
-
-
     public int getScore() {
         return score;
     }

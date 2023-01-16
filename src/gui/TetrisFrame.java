@@ -7,13 +7,16 @@ import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
+import static java.lang.Thread.sleep;
+
 public class TetrisFrame extends JFrame {
 
     GameManager gm;
 
     public TetrisFrame() throws HeadlessException {
         gm = GameManager.getGm();
-        setSize(400,700); // 창 사이즈 지정
+
+        setSize(400,550); // 창 사이즈 지정
         setTitle("진짜 대박 재밌는 테트리스"); // 창 이름 지정
         setLocationRelativeTo(null); // 창을 가운데로 띄움
         setDefaultCloseOperation(EXIT_ON_CLOSE); // X 버튼으로 창을 닫으면 프로그램 종료
@@ -28,9 +31,9 @@ public class TetrisFrame extends JFrame {
     }
 
     private void init() {   // 기본 세팅 메서드
-        add(getTitlePanel());   // 타이틀 패널 배치
         add(getScorePanel());    // 점수 패널 배치
         add(getGamePanel());    // 게임 패널 배치
+        add(getTitlePanel());   // 타이틀 패널 배치
     }
 
     private JPanel getTitlePanel() {    // 타이틀 패널 세팅 메서드
@@ -40,14 +43,14 @@ public class TetrisFrame extends JFrame {
     }
 
     private JPanel getScorePanel() {    // 점수 패널 세팅 메서드
-        ScorePanel panel = new ScorePanel(gm.getUser());
-        panel.setBounds(300, 101, 100, 40);
+        ScorePanel panel = new ScorePanel();
+        panel.setBounds(300, 100, 100, 450);
         return panel;
     }
 
     private JPanel getGamePanel() { // 게임 패널 세팅 메서드
         GamePanel panel = new GamePanel();
-        panel.setBounds(0, 100, 300, 600);
+        panel.setBounds(0, 100, 300, 550);
         return panel;
     }
 
@@ -76,8 +79,10 @@ public class TetrisFrame extends JFrame {
                         gm.generateBlock();
                         break;
                 }
+
                 repaint();
             }
         }
+
     }
 }
